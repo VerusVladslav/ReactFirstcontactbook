@@ -1,6 +1,6 @@
 /* .fa-star{
-    position: absolute;
-    right: 2px;
-    bottom: 20px;
-   
+    padding-top: 5px;
 } */
+i{
+    cursor: pointer;
+}

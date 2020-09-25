@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import "./Contactitem.css";
 
+import {Link} from 'react-router-dom';
 class Contactitem extends Component {
     state={
         id:this.props.id,
@@ -14,8 +15,11 @@ class Contactitem extends Component {
         gender:this.props.gender,
         avatar:this.props.avatar,
         isFavorite:this.props.isFavorite,
+        Categoryid:this.props.Categoryid
         
     }
+    
+   
 setRandomImage()
 {
     const random=Math.floor(Math.random()*Math.floor(99));
@@ -23,7 +27,14 @@ setRandomImage()
         avatar:random
     });
 }
-
+setcategory()
+{
+    var select=document.getElementById("inputCategory");
+    select.innerHTML="";
+  //  this.props.Category.map(id,name).forEach(element => {
+      //  select.innerHTML+=' <option >'+{element.name}+'</option>'
+    //});
+}
 setFavorite()
 {
    
@@ -32,7 +43,7 @@ setFavorite()
     })
 }
     render() {
-
+        
         const{name,phone,address,email,gender,avatar}=this.state;
         const URL_img=`https://randomuser.me/api/portraits/${gender}/${avatar}.jpg`;
 
@@ -54,12 +65,19 @@ setFavorite()
                 </div>
                 <div className="card-footer">
                     <button className="btn btn-info" onClick={this.setRandomImage.bind(this)}>RANDOM IMAGE</button>
-                    
+                
                   <i class={class_star} onClick={this.props.changeFavourite}></i>
 
-                       
-                   
-                    
+                  <i class="fas fa-trash-alt fa-2x" onClick={this.props.removewContact}></i>
+                  <Link to="/editContact">
+                  <i class="fas fa-edit fa-2x" onClick={this.props.editContact}></i>
+                  </Link>
+
+                  {<select class="custom-select"   id="inputCategory" >
+                        <option selected value="1">Men</option>
+                        <option value="2">Woman</option>
+       
+                    </select>}
                   
                    
                 </div>

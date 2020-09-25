@@ -7,7 +7,7 @@ import "./Favoritelist.css";
 
 import Contactitem from "../Contactitem/Contactitem";
 
-const Favoritelist =({DataContact,changeFavourite})=>{
+const Favoritelist =({DataContact,changeFavourite,removewContact,editContact})=>{
 
     var contact;
     if(DataContact !=null)
@@ -24,8 +24,8 @@ const Favoritelist =({DataContact,changeFavourite})=>{
             avatar={item.avatar}
             isFavorite={item.isFavorite}
             changeFavourite={()=>changeFavourite(item.id)}   
-    
-    
+            removewContact={()=>removewContact(item.id)}
+            editContact={()=>editContact(item.id)}
             >
             </Contactitem>
             );
